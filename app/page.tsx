@@ -1,15 +1,42 @@
-import AcmeLogo from '@/app/ui/acme-logo';
+
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+//import styles from '@/app/ui/home.module.css';
+import styles from '@/app/ui/styles/home.module.scss'
+import { lusitana } from '@/app/ui/fonts/fonts';
+
+// import acne logo
+import AcmeLogo from '@/app/ui/acme-logo';
+
+//local font
+import localFont from 'next/font/local';
+const myFont = localFont({ src: './ui/fonts/my-font.woff2' });
+
+// image import
+import Image from 'next/image';
 
 export default function Page() {
+  //const myFont = localFont({ src: './my-font.woff2' })
   return (
-    <main className="flex min-h-screen flex-col p-6">
+    <main className="flex min-h-screen flex-col p-6" >
+
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        {/* <AcmeLogo /> */}
+        <AcmeLogo />
       </div>
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
+
+      <div className="mt-4 flex grow flex-col gap-4 md:flex-row ">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
+          <div
+            className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent"
+          />
+          <h1 style={{ color: styles.primaryColor }}>Hello, Next.js! jkjkj</h1>
+          <div className="toto" >klklkl</div>
+          <div className={styles.shape} />
+          <div className={`${lusitana.className} antialiased`} >Font test lusitana
+            <div className={`${myFont.className} antialiased`} >C'est mon font</div></div>
+
+          <p className={styles.danger}>Warning! This is some text.</p>
+          <p className='danger'>Warnisng! This is some text.</p>
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>Welcome to Acme.</strong> This is the example for the{' '}
             <a href="https://nextjs.org/learn/" className="text-blue-500">
@@ -26,6 +53,13 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
+          <Image
+            src="/images/hero-desktop.png"
+            width={1000}
+            height={760}
+            className="hidden md:block"
+            alt="Screenshots of the dashboard project showing desktop version"
+          />
         </div>
       </div>
     </main>

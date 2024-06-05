@@ -1,0 +1,30 @@
+/* Style normal */
+.shape {
+  height: 0;
+  width: 0;
+  border-bottom: 30px solid black;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+/* mixim itégrer dans style danger */
+@mixin important-text {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+}
+
+.danger {
+  @include important-text;
+  background-color: green;
+  font-size: 10px;
+}
+
+/* export de variables */
+$primary-color: #d9cbf9;
+
+:export {
+  primaryColor: $primary-color;
+}
+
