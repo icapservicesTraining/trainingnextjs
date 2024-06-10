@@ -1,5 +1,6 @@
 import '@/app/ui/styles/global.scss';
 import { inter } from '@/app/ui/fonts/fonts';
+import AuthProvider from "@/app/providers/AuthProvider";
 
 export default function RootLayout({
   children,
@@ -9,8 +10,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body  className={`${inter.className} antialiased`}>{children}</body>
-
+      <body className={`${inter.className} antialiased`}>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   );
 }
